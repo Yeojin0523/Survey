@@ -20,6 +20,7 @@ public class BlogDao{
 			pstmt = conn.prepareStatement(sql);
 			// 값 담아주고 바인딩. ?? 에 값 담아주기
 			pstmt.setString(1, dto.getText());
+			pstmt.executeUpdate();
 		}catch (SQLException e){
 			e.printStackTrace();
 		}finally {
@@ -46,7 +47,6 @@ public class BlogDao{
 				// dto 선언
 				// set( 값을 넣거나 수정하고, list에 추가해줘야 한다.)
 				BlogDto dto = new BlogDto();
-			
 				dto.setSeq(rs.getInt("seq"));
 				dto.setText(rs.getString("text"));
 				list.add(dto);

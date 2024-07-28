@@ -1,0 +1,11 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+}
+/*화면 전체*/
+.logo_area{
+	width:200px;
+	height:30px;
+	color: red;
+}
