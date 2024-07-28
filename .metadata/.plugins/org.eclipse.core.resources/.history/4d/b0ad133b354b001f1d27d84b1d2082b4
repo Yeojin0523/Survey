@@ -1,0 +1,10 @@
+package Blog;
+
+import java.sql.Connection;
+
+public class BlogDao{
+	public void insertBlog(BlogDto dto) {
+		Connection conn = null;
+		
+	}
+}

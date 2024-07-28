@@ -1,0 +1,25 @@
+<%@ page import="Blog.BlogDao" %>
+<%@ page import="Blog.BlogDto" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		int seq = request.getParameter("text");
+	
+		BlogDto dto = new BlogDto();
+		dto.setSeq(seq);
+		
+		// insert 메서드 호출
+		BlogDao dao = new BlogDao();
+		dao.insertBlog(dto);
+		
+		response.sendRedirect("list.jsp");
+	%>
+</body>
+</html>

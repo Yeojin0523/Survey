@@ -1,0 +1,5 @@
+package Blog;
+
+public void InsertBlog(BlogDto dto){
+	
+}

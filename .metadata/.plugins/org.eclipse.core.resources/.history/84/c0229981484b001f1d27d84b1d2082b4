@@ -1,0 +1,33 @@
+package Blog;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Vector;
+
+import oracle.db.DBConnect;
+
+public class BlogDao{
+	public void insertBlog(BlogDto dto) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql ="insert into Blog values(??)";
+		
+		conn = DBConnect.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			// 값 담아주고 바인딩. ?? 에 값 담아주기
+			pstmt.setInt(0, dto.getSeq());
+		}catch (SQLException e){
+			e.printStackTrace();
+		}finally {
+			DBConnect.DBClose(pstmt, conn);
+		}
+	}
+}
+public Vector<BlogDto> getAllDatas(){
+	Vector<BlogDto> list = new Vector<BlogDto>();
+	
+}
