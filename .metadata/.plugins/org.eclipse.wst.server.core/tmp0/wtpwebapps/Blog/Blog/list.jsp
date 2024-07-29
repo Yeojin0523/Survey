@@ -1,91 +1,124 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.SQLException" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.SQLException"%>
 
-<% 
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
+<%
+Connection conn = null;
+PreparedStatement pstmt = null;
+ResultSet rs = null;
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>my blog</title>
-	<script src="list.js"></script>
-	<link rel="stylesheet" href="list.css">
+<meta charset="UTF-8">
+<title>my blog</title>
+<script src="list.js"></script>
+<link rel="stylesheet" href="list.css">
 </head>
 <body>
 	<div class="wrapper">
 		<div class="wrap">
-			<div class="top_gnb_area">
-				
-			</div>
+			<div class="top_gnb_area"></div>
 			<div class="top_area">
 				<div class="logo_area">
-					<h1>¿©±â¿¡ ·Î°í ³Ö±â</h1>
+					<h1>ì—¬ê¸°ì— ë¡œê³  ë„£ê¸°</h1>
 				</div>
 				<div class="donate_area">
-					<h1>±âºÎÇÏ±â</h1>
+					<h1>ê¸°ë¶€í•˜ê¸°</h1>
 				</div>
-				
+
 				<div class="mail_area">
-					<h1>¸ŞÀÏ º¸³»±â</h1>
+					<h1>ë©”ì¼ ë³´ë‚´ê¸°</h1>
 				</div>
 				<div class="login_area">
-					<h1>·Î±×ÀÎÇÏ±â</h1>
-					<!-- ·Î±×ÀÎ ¾ÈÇÑ »óÅÂ -->
-					<c:if test = "${memeber == null}">
-						<div class="loginBtn"><a href="">·Î±×ÀÎ</a></div>
-						<span><a href="">È¸¿ø°¡ÀÔ</a></span>
+					<h1>ë¡œê·¸ì¸í•˜ê¸°</h1>
+					<!-- ë¡œê·¸ì¸ ì•ˆí•œ ìƒíƒœ -->
+					<c:if test="${memeber == null}">
+						<div class="loginBtn">
+							<a href="">ë¡œê·¸ì¸</a>
+						</div>
+						<span><a href="">íšŒì›ê°€ì…</a></span>
 					</c:if>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
-	<div class="donateList">
-		<table width="800" border="1" align="center">
+
+
+
+
+	<div class="frame">
+		<table class="outer_table">
 			<tr>
-			<th>id</th>
-			<th>text</th>
+				<td>
+					<table class="category_table">
+						<tr>
+							<td>r</td>
+						</tr>
+					</table>
+				</td>
 			</tr>
-		<% 
-    	try {
-        	Class.forName("oracle.jdbc.driver.OracleDriver");
-        	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "c##systemid", "systempwd");
-        	String sql = "SELECT * FROM blog";
-        	pstmt = conn.prepareStatement(sql);
-        	rs = pstmt.executeQuery();
-        
-        	while(rs.next()){
-            	out.println("<tr>");
-            	out.println("<td>" + rs.getInt("seq") + "</td>");
-            	out.println("<td>" + rs.getString("text") + "</td>");
-            	out.println("</tr>");
-        	}
-    	} catch(Exception e) {
-        	e.printStackTrace();
-    	} finally {
-        	try {
-            	if(rs != null) rs.close();
-            	if(pstmt != null) pstmt.close();
-            	if(conn != null) conn.close();
-        	} catch(Exception e) {
-            	e.printStackTrace();
-        	}
-    	}
-		%>
+			<tr>
+				<td>
+					<h1>ê¸°ë¶€í•˜ê¸°. ã…‡ã…‡ã…‡</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="content">
+						<div class="donateList">
+							<table class="inner_table">
+								<tr>
+									<th>id</th>
+									<th>text</th>
+								</tr>
+								<%
+								try {
+									Class.forName("oracle.jdbc.driver.OracleDriver");
+									conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "c##systemid", "systempwd");
+									String sql = "SELECT * FROM blog";
+									pstmt = conn.prepareStatement(sql);
+									rs = pstmt.executeQuery();
+
+									while (rs.next()) {
+										out.println("<tr>");
+										out.println("<td>" + rs.getInt("seq") + "</td>");
+										out.println("<td>" + rs.getString("text") + "</td>");
+										out.println("</tr>");
+									}
+								} catch (Exception e) {
+									e.printStackTrace();
+								} finally {
+									try {
+										if (rs != null)
+									rs.close();
+										if (pstmt != null)
+									pstmt.close();
+										if (conn != null)
+									conn.close();
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								}
+								%>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
 		</table>
 	</div>
-	<div>
-		<button id="insertBtn">Ãß°¡</button>
+
+
+	<div class="button_area">
+		<button id="insertBtn">ì¶”ê°€</button>
 	</div>
 </body>
 </html>

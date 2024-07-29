@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert</title>
 </head>
 <body>
 	<div>
 		<form action="InsertAction.jsp" method="post">
-			<textarea name="text" placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä" rows="4", cols="50"></textarea>
-			<button type="submit" id="insertFormBtn">È®ÀÎ</button>
+			<textarea name="text" placeholder="ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”" rows="4", cols="50"></textarea>
+			<button type="submit" id="insertFormBtn">í™•ì¸</button>
 		</form>
 	</div>
 </body>
