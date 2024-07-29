@@ -50,13 +50,36 @@
 table{
 	margin-left:auto;
 	margin-right:auto;
-	width:150%;
+	text-align: center;
+}
+table, td, th{
 	border-collapse: collapse;
-	border:1px solid black;
-	padding:30%;
 }
-td, th{
-	padding:10px;
+.content{
 	border:1px solid black;
 }
-
+.outer_table{
+	margin-top:3%;
+}
+.inner_table{
+	margin-top:2%;
+	width:50%;
+	height:50%;
+}
+.insert{
+	text-align: center;
+}
+.insert-btn{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.list{
+	display: flex;
+	flex-direction: row-reverse;
+}
+.category{
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}

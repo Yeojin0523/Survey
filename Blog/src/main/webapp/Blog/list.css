@@ -47,6 +47,9 @@
 	background-color: white;
 	float:right;
 }
+.donate-link{
+	text-align: center;
+}
 table{
 	margin-left:auto;
 	margin-right:auto;
@@ -83,3 +86,4 @@ table, td, th{
 	justify-content: space-around;
 	text-align: center;
 }
+

@@ -30,7 +30,7 @@ ResultSet rs = null;
 					<h1>여기에 로고 넣기</h1>
 				</div>
 				<div class="donate_area">
-					<h1>기부하기</h1>
+					<h3 id="donate-link">기부하기</h3>
 				</div>
 
 				<div class="mail_area">
@@ -56,7 +56,7 @@ ResultSet rs = null;
 				<td>어린이</td>
 				<td>지구촌</td>
 			</tr>
-			<tr class="list" colspan="2">
+			<tr class="list">
 				<td>
 					<h1>최신순</h1>
 				</td>
@@ -88,9 +88,13 @@ ResultSet rs = null;
 										if(count % 4 == 0){
 											out.println("<tr>");
 										}
-										out.println("<td>" + rs.getInt("seq") + "</td>");
-										out.println("<td>" + rs.getString("text") + "</td>");									
-										count++;
+										 out.println("<td>");
+	                                        out.println("<div class='each-content' onclick='goToInsertForm()'>");
+	                                        out.println("<span>" + rs.getInt("seq") + "</span>");
+	                                        out.println("<span>" + rs.getString("text") + "</span>");
+	                                        out.println("</div>");
+	                                        out.println("</td>");
+	                                        count++;
 										
 										if(count % 4 == 0){
 										out.println("</tr>");
@@ -121,11 +125,6 @@ ResultSet rs = null;
 			</tr>
 		</table>
 	</div>
-
-	<div class="insert-btn">
-		<button id="insert-btn1">추가</button>
-	</div>
-
 	<script src="list.js"></script>
 </body>
 </html>

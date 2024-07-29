@@ -1,0 +1,13 @@
+/** list.js의 script file
+ * 
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    var insertButton = document.getElementById("donate-link");
+    if (insertButton) {
+        insertButton.addEventListener("click", function() {
+            window.location.href = "InsertForm.jsp";
+        });
+    } else {
+        console.error('Element with ID "each-content" not found');
+    }
+});

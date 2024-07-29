@@ -1,0 +1,13 @@
+/** list.js의 script file
+ * 
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    var insertButton = document.getElementById("insert-btn1");
+    if (insertButton) {
+        insertButton.addEventListener("click", function() {
+            window.location.href = "InsertForm.jsp";
+        });
+    } else {
+        console.error('Element with ID "insert-btn1" not found');
+    }
+});

@@ -19,7 +19,6 @@ ResultSet rs = null;
 <head>
 <meta charset="UTF-8">
 <title>my blog</title>
-<script src="list.js"></script>
 <link rel="stylesheet" href="list.css">
 </head>
 <body>
@@ -50,27 +49,32 @@ ResultSet rs = null;
 			</div>
 		</div>
 	</div>
-
 	<div class="frame">
 		<table class="outer_table">
-			<tr>
+			<tr class="category">
+				<td>전체</td>
+				<td>어린이</td>
+				<td>지구촌</td>
+			</tr>
+			<tr class="list">
 				<td>
-					<table>
-						<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						</tr>
-					</table>
+					<h1>최신순</h1>
 				</td>
-				<td></td>
-				<td><div class="content">
+				<td>
+					<h1>오래된순</h1>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div class="content">
 						<div class="donateList">
 							<table class="inner_table">
+								<!--  
 								<tr>
-									<td>id</td>
-									<td>text</td>
+									<th>id</th>
+									<th>text</th>
 								</tr>
+								-->
 								<%
 								try {
 									Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -78,11 +82,21 @@ ResultSet rs = null;
 									String sql = "SELECT * FROM blog";
 									pstmt = conn.prepareStatement(sql);
 									rs = pstmt.executeQuery();
-
+									int count = 0;
+									
 									while (rs.next()) {
-										out.println("<tr>");
+										if(count % 4 == 0){
+											out.println("<tr>");
+										}
 										out.println("<td>" + rs.getInt("seq") + "</td>");
-										out.println("<td>" + rs.getString("text") + "</td>");
+										out.println("<td>" + rs.getString("text") + "</td>");									
+										count++;
+										
+										if(count % 4 == 0){
+										out.println("</tr>");
+										}
+									}
+									if (count % 4 != 0) {
 										out.println("</tr>");
 									}
 								} catch (Exception e) {
@@ -103,16 +117,16 @@ ResultSet rs = null;
 							</table>
 						</div>
 					</div>
-					</td>
+				</td>
 			</tr>
-
-
 		</table>
 	</div>
 
-	<div class="button_area">
-		<button id="insertBtn">추가</button>
+	<div class="insert-btn">
+		<button id="insert-btn1">추가</button>
 	</div>
+
+	<script src="list.js"></script>
 </body>
 </html>
 
