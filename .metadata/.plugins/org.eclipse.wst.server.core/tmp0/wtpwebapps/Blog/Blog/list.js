@@ -2,7 +2,7 @@
  * 
  */
 document.addEventListener("DOMContentLoaded", function(){
-	document.getElementById("insertBtn").addEventListener("click", function(){
+	document.getElementById("insert-btn1").addEventListener("click", function(){
 		window.location.href="InsertForm.jsp";
 	});
 });

@@ -54,18 +54,32 @@ table{
 }
 table, td, th{
 	border-collapse: collapse;
+}
+.content{
 	border:1px solid black;
 }
 .outer_table{
 	margin-top:3%;
 }
 .inner_table{
-	margin-top:20%;
+	margin-top:2%;
 	width:50%;
 	height:50%;
 }
-.button_area{
+.insert{
 	text-align: center;
-	padding:3%;
 }
-
+.insert-btn{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.list{
+	display: flex;
+	flex-direction: row-reverse;
+}
+.category{
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
