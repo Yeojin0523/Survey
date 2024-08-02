@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/DonationServlet")
+@WebServlet("/DonationServlet") 
 public class DonationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class DonationServlet extends HttpServlet {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "c##systemid", "systempwd");
-            String sql = "SELECT text FROM donation WHERE seq = ?";
+            String sql = "SELECT text FROM Donation WHERE seq = ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, seq);
             rs = pstmt.executeQuery();
@@ -37,7 +37,7 @@ public class DonationServlet extends HttpServlet {
             if (rs.next()) {
                 String text = rs.getString("text");
                 request.setAttribute("text", text);
-                request.getRequestDispatcher("displayText.jsp").forward(request, response);
+                request.getRequestDispatcher("InsertForm.jsp").forward(request, response);
             } else {
                 request.setAttribute("error", "No results found for seq: " + seq);
                 request.getRequestDispatcher("error.jsp").forward(request, response);

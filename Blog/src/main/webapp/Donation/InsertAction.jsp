@@ -1,4 +1,4 @@
-<%@ page import="donation.dao.DondationDao" %>
+<%@ page import="donation.dao.DonationDao" %>
 <%@ page import="donation.dto.DonationDto" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -16,7 +16,7 @@
 		dto.setText(text);
 		
 		// insert 메서드 호출
-		DondationDao dao = new DondationDao();
+		DonationDao dao = new DonationDao();
 		dao.insertDonation(dto);
 		
 		response.sendRedirect("list.jsp");
