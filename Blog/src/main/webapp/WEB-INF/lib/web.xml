@@ -12,4 +12,14 @@
 	<servlet-name>DonationServlet</servlet-name>
 	<url-pattern>/DonationServlet</url-pattern>
 	</servlet-mapping>
+	
+	<!-- displayTextServlet -->
+	<servlet>
+		<servlet-name>DisplayTextServlet</servlet-name>
+		<servlet-class>donation.controller.DisplayTextServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayTextServlet</servlet-name>
+		<url-pattern>/DisplayTextServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

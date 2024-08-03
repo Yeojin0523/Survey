@@ -5,4 +5,3 @@ INDEX VERSION 1.4+D:\study_2024\survey\.metadata\.plugins\org.eclipse.wst.jsdt.c
 3713075877.index
 3643389426.index
 1586878212.index
-286965992.index

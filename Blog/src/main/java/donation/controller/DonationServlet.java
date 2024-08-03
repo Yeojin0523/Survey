@@ -12,19 +12,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/DonationServlet") 
+// 역할: 필요에 따라 insertForm.jsp또는 다른 jsp 페이지로 리디렉션한다.
+@WebServlet("/DonationServlet")
 public class DonationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-
         int seq = Integer.parseInt(request.getParameter("seq"));
-
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        String text = "";
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -35,17 +34,10 @@ public class DonationServlet extends HttpServlet {
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                String text = rs.getString("text");
-                request.setAttribute("text", text);
-                request.getRequestDispatcher("InsertForm.jsp").forward(request, response);
-            } else {
-                request.setAttribute("error", "No results found for seq: " + seq);
-                request.getRequestDispatcher("error.jsp").forward(request, response);
+                text = rs.getString("text");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("error", "Error: " + e.getMessage());
-            request.getRequestDispatcher("error.jsp").forward(request, response);
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -55,5 +47,37 @@ public class DonationServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
+        request.setAttribute("text", text);
+        request.getRequestDispatcher("DisplayTextServlet").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String text = request.getParameter("text");
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "c##systemid", "systempwd");
+            String sql = "INSERT INTO Donation (text) VALUES (?)";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, text);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        response.sendRedirect("list.jsp");
     }
 }
