@@ -1,6 +1,0 @@
-/** list.js의 script file
- * 
- */
-document.addEventListener("DOMContentLoaded", function(){
-	
-});
