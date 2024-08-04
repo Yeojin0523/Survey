@@ -10,7 +10,7 @@
 	<h1>${text}</h1>
 	<form action="your_form_action" method="post">
 	text : <input type="text" name="text" value="${text}">
-	<input type="submit" value="submit">
+	<input type="submit" value="추가">
 	</form>
 </body>
 </html>
