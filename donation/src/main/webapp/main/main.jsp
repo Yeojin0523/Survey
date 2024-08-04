@@ -19,7 +19,7 @@ ResultSet rs = null;
 <head>
 <meta charset="UTF-8">
 <title>my donation</title>
-<link rel="stylesheet" href="list.css">
+<link rel="stylesheet" href="main.css">
 </head>
 <body>
 	<div class="wrapper">
@@ -89,7 +89,7 @@ ResultSet rs = null;
 											out.println("<tr>");
 										}
 										 out.println("<td>");
-	                                        out.println("<div class='each-content' onclick='location.href=\"/DonationServlet?seq=" + rs.getInt("seq") + "\"'>");
+	                                        out.println("<div class='each-content' onclick='location.href=\"donation/DonationServlet?seq=" + rs.getInt("seq") + "\"'>");
 	                                        out.println("<span>" + rs.getInt("seq") + "</span>");
 	                                        out.println("<span>" + rs.getString("text") + "</span>");
 	                                        out.println("</div>");
@@ -125,7 +125,7 @@ ResultSet rs = null;
 			</tr>
 		</table>
 	</div>
-	<script src="list.js"></script>
+	<script src="main.js"></script>
 </body>
 </html>
 

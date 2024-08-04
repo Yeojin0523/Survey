@@ -5,12 +5,4 @@
     <!-- web.xml 파일에서 DonationServlet 서블릿 매핑을 제거합니다 -->
     
     <!-- DisplayTextServlet 설정 -->
-    <servlet>
-        <servlet-name>DisplayTextServlet</servlet-name>
-        <servlet-class>donation.controller.DisplayTextServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DisplayTextServlet</servlet-name>
-        <url-pattern>/DisplayTextServlet</url-pattern>
-    </servlet-mapping>
 </web-app>
