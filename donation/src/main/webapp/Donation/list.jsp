@@ -89,7 +89,7 @@ ResultSet rs = null;
 											out.println("<tr>");
 										}
 										 out.println("<td>");
-	                                        out.println("<div class='each-content' onclick='location.href=\"/donation/DonationServlet?seq=" + rs.getInt("seq") + "\"'>");
+	                                        out.println("<div class='each-content' onclick='location.href=\"/DonationServlet?seq=" + rs.getInt("seq") + "\"'>");
 	                                        out.println("<span>" + rs.getInt("seq") + "</span>");
 	                                        out.println("<span>" + rs.getString("text") + "</span>");
 	                                        out.println("</div>");
