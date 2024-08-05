@@ -29,7 +29,7 @@ public class DisplayTextServlet extends HttpServlet {
         request.setAttribute("donation", donation);
 
         ServletContext context = getServletContext();
-        RequestDispatcher dispatcher = context.getRequestDispatcher("/donation/donationText.jsp");
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/donationListPage/donationList.jsp");
         dispatcher.forward(request, response);
     }
 

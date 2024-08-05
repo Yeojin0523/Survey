@@ -30,3 +30,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+/*
+document.addEventListener("DOMContentLoaded", function(){
+	var DonateBoxes = document.querySelectorAll(".donate_area");
+	DonateBoxes.forEach(fuction(box2){
+		box2.addEventListener("click", function(event){
+			// 
+		})
+	})
+})*/
