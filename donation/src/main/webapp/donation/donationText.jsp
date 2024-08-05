@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +7,17 @@
 <title>donationDisplay</title>
 </head>
 <body>
-	<h1>${text}</h1>
-	<form action="your_form_action" method="post">
-	text : <input type="text" name="text" value="${text}">
-	<input type="submit" value="추가">
-	</form>
+    <c:choose>
+        <c:when test="${not empty donation}">
+            <h1>${donation.text}</h1>
+        </c:when>
+        <c:otherwise>
+            <h1>No data found</h1>
+        </c:otherwise>
+    </c:choose>
+    <form action="donation_form_action" method="get">
+                기부하기 : <input type="text" name="text" value="금액을 입력하세요">
+                <input type="submit" value="추가">
+    </form>
 </body>
 </html>
