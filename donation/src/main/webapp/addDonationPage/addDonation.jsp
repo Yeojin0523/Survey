@@ -12,7 +12,7 @@
 		<h1 id="h1-title">기부내용을 등록하세요</h1>
 	</div>
 	<div>
-		<form action="" method="get" enctype="multipart/form-data">
+		<form id="donation-form" action="" method="get" enctype="multipart/form-data">
 			<div id="title-show">
 				제목 : <input type="text" name="title" />
 			</div>
@@ -24,7 +24,7 @@
 			</div>
 			<div id="content-show">
 				내용 :
-				<textarea name="content">내용을 입력하세요.</textarea>
+				<textarea id="content" name="content" placeholder="내용을 입력해 주세요"></textarea>
 			</div>
 			<div id="start-date-show">
 				시작일 : <input type="date" min="2020-01-01" max="" name="startDate" />
@@ -39,6 +39,15 @@
 			<div><input type="file" accept="image/*" onchange="loadFile(this)">
 			<!-- 여기서 onchange는 input이나 select 등의 데이터가 변경될 떄 호출되는 이벤트이다. 
 			이 코드에서는 파일을 불러왔을 때 loadFile 함수를 실행한다. -->
+			</div>
+			<div id="point-show">
+				포인트 <input type="text">
+			</div>
+			<div id="amount-show">
+				목표 금액 <input type="text">
+			</div>
+			<div>
+				<button id="btn-show">확인</button>
 			</div>
 		</form>
 		</div>

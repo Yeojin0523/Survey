@@ -84,7 +84,7 @@ ResultSet rs = null;
                                         int seq = rs.getInt("seq");
                                         String text = rs.getString("text");
                                         out.println("<td>");
-                                        out.println("<div class='each-content' data-seq='" + seq + "'>");
+                                        out.println("<div class='each-content' onclick='location.href=\"donation/DonationServlet?seq=" + rs.getInt("seq") + "\"'>");
                                         out.println("<span>" + seq + "</span>");
                                         out.println("<span>" + text + "</span>");
                                         out.println("</div>");

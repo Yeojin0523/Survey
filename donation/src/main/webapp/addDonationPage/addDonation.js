@@ -15,3 +15,10 @@ function loadFile(input){
 	container.innerHTML = ""; // 기존 회색 이미지 제거
 	container.appendChild(newImage);
 }
+function confirmSubmission(){
+	var result = confirm("등록하겠습니까");
+	if(result){
+		// 실행 시 데이터 넘겨
+		document.getElementById('donation-form').submit();
+	}
+}

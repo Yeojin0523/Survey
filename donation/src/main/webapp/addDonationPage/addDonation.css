@@ -1,15 +1,16 @@
 /*기부하기 창 CSS*/
 @charset "UTF-8";
 
-div{
+.donation-form{
 	text-align: center;
 	margin-top: 20px;
 }
-
 #content {
-	width: 100px;
-	height: 100px;
-}
+    border: none;
+    resize: none;
+    height: 300px;
+    
+  }
 
 .addImage {
 	text-align:center;
