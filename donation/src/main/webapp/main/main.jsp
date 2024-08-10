@@ -29,7 +29,7 @@ ResultSet rs = null;
                 <div class="logo_area">
                     <h1>여기에 로고 넣기</h1>
                 </div>
-                <div class="donate_area" onclick="donation/addDonationPage/addDonation.jsp">
+                <div class="donate_area" onclick='goToDonationAddForm(event)'>
                     <h3>기부하기</h3>
                 </div>
                 <div class="mail_area">

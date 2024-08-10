@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // .each-content 요소에 대한 클릭 이벤트 처리
     var contentBoxes = document.querySelectorAll(".each-content");
     contentBoxes.forEach(function(box) {
         box.addEventListener("click", function(event) {
@@ -29,13 +30,21 @@ document.addEventListener("DOMContentLoaded", function() {
             form.submit();
         });
     });
+
+    // .donate_area 요소에 대한 클릭 이벤트 처리
+	var donateBoxes = document.querySelectorAll(".donate_area");
+	donateBoxes.forEach(function(box2) {
+    box2.addEventListener("click", function(event) {
+        event.stopPropagation(); // 부모 요소로의 이벤트 전파 중지
+        event.preventDefault(); // 기본 동작 중지
+        
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '../DonationServlet';
+        
+        document.body.appendChild(form);
+        form.submit();
+    });
 });
-/*
-document.addEventListener("DOMContentLoaded", function(){
-	var DonateBoxes = document.querySelectorAll(".donate_area");
-	DonateBoxes.forEach(fuction(box2){
-		box2.addEventListener("click", function(event){
-			// 
-		})
-	})
-})*/
+
+});
