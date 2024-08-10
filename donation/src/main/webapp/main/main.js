@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // 폼 생성
             var form = document.createElement('form');
             form.method = 'POST';
-            form.action = 'DonationServlet';
+            form.action = '../DonationServlet';
 
             // seq 값 추가
             var seqField = document.createElement('input');

@@ -18,30 +18,48 @@ import donation.dto.DonationDto;
 public class DonationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // 폼으로부터 전달된 파라미터를 받습니다.
-        String seqParam = request.getParameter("seq");
-        String text = request.getParameter("text");
-        System.out.println("Received seq parameter: " + seqParam);
-        System.out.println("Received text parameter: " + text);
+        int seq = Integer.parseInt(request.getParameter("seq"));
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        DonationDto donation = null;
 
-        int seq = Integer.parseInt(seqParam);
-        DonationDto donation = new DonationDto();
-        donation.setSeq(seq);
-        donation.setText(text);
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "c##systemid", "systempwd");
+            String sql = "SELECT seq, text FROM donation WHERE seq = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, seq);
+            rs = pstmt.executeQuery();
 
-        // DonationDto 객체를 request에 설정
+            if (rs.next()) {
+                donation = new DonationDto();
+                donation.setSeq(rs.getInt("seq"));
+                donation.setText(rs.getString("text"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         request.setAttribute("donation", donation);
-        System.out.println("Donation object set: seq=" + donation.getSeq() + ", text=" + donation.getText());
-
-        // DisplayTextServlet으로 포워딩
         request.getRequestDispatcher("/DisplayTextServlet").forward(request, response);
     }
 
+    // doPost 메서드 추가
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        doGet(request, response);
     }
 }
+

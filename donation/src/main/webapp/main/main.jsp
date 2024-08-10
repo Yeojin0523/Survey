@@ -29,7 +29,7 @@ ResultSet rs = null;
                 <div class="logo_area">
                     <h1>여기에 로고 넣기</h1>
                 </div>
-                <div class="donate_area" >
+                <div class="donate_area" onclick="donation/addDonationPage/addDonation.jsp">
                     <h3>기부하기</h3>
                 </div>
                 <div class="mail_area">
@@ -38,12 +38,10 @@ ResultSet rs = null;
                 <div class="login_area">
                     <h1>로그인하기</h1>
                     <!-- 로그인 안한 상태 -->
-                    <c:if test="${member == null}">
                         <div class="loginBtn">
                             <a href="">로그인</a>
                         </div>
                         <span><a href="">회원가입</a></span>
-                    </c:if>
                 </div>
             </div>
         </div>
@@ -84,7 +82,7 @@ ResultSet rs = null;
                                         int seq = rs.getInt("seq");
                                         String text = rs.getString("text");
                                         out.println("<td>");
-                                        out.println("<div class='each-content' onclick='location.href=\"donation/DonationServlet?seq=" + rs.getInt("seq") + "\"'>");
+                                        out.println("<div class='each-content' data-seq='" + seq + "' onclick='goToInsertForm(event)'>");
                                         out.println("<span>" + seq + "</span>");
                                         out.println("<span>" + text + "</span>");
                                         out.println("</div>");
