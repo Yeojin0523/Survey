@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import donation.dao.DonationDao;
 import donation.dto.DonationDto;
 
-@WebServlet("/addDonationPage/addDonation")
+@WebServlet("/AddDonationSevlet")
 public class AddDonationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

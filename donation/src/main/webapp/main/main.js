@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         var form = document.createElement('form');
         form.method = 'POST';
-        form.action = '../DonationServlet';
+        form.action = '../AddDonationServlet';
         
         document.body.appendChild(form);
         form.submit();
