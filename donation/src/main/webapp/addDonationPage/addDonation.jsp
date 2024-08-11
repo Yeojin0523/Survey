@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Donation</title>
-<link rel="stylesheet" href="addDonation.css">
-</head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/addDonationPage/addDonation.css">
+
 <body>
 	<div>
 		<h1 id="h1-title">기부내용을 등록하세요</h1>
 	</div>
 	<div id="form-div">
-		<form id="donation-form" action="addDonation" method="post"
+		<form id="donation-form" action="addDonation" method="get"
 			enctype="multipart/form-data">
 
 			제목 : <input type="text" name="title" /> 

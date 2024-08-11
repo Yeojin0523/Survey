@@ -2,6 +2,7 @@ package donation.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import donation.dao.DonationDao;
 import donation.dto.DonationDto;
 
-@WebServlet("/AddDonationSevlet")
+@WebServlet("/AddDonationServlet")
 public class AddDonationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -42,14 +43,14 @@ public class AddDonationServlet extends HttpServlet {
         try {
             dao.insertDonation(dto);
             // 삽입 후 메인 페이지로 리다이렉트
-            response.sendRedirect("/donation/main/main.jsp");
+            
+            request.setAttribute("donation", dto);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/DisplayAddDonationServlet");
+            dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Donation could not be added.");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Donation could not be added");
         }
-        
-        request.setAttribute("donation", dto);
-        request.getRequestDispatcher("/DisplayAddDonationServlet").forward(request, response);
     }
 
     @Override

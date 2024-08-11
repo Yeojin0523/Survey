@@ -1,10 +1,11 @@
 /*기부하기 창 CSS*/
 @charset "UTF-8";
 
-#content {
+.text {
     border: none;
     resize: none;
     height: 300px;
+    width:100px;
 }
 
 .addImage {
