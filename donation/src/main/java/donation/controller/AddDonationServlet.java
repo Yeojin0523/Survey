@@ -27,7 +27,8 @@ public class AddDonationServlet extends HttpServlet {
         String lastDate = request.getParameter("lastDate");
         String points = request.getParameter("points");
         String targetAmount = request.getParameter("targetAmount");
-
+        String redirectPage = request.getParameter("redirectPage"); // 어디로 리다이렉트할지 결정하는 파라미터
+        
         // DTO 객체 생성 및 데이터 설정
         DonationDto dto = new DonationDto();
         dto.setTitle(title);
@@ -43,10 +44,14 @@ public class AddDonationServlet extends HttpServlet {
         try {
             dao.insertDonation(dto);
             // 삽입 후 메인 페이지로 리다이렉트
-            
-            request.setAttribute("donation", dto);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/DisplayAddDonationServlet");
-            dispatcher.forward(request, response);
+            System.out.println(redirectPage);
+            if(redirectPage != null && redirectPage.equals("main")) {
+            	response.sendRedirect("main.jsp");
+            }else {
+            	request.setAttribute("donation", dto);
+            	RequestDispatcher dispatcher = request.getRequestDispatcher("/DisplayAddDonationServlet");
+                dispatcher.forward(request, response);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Donation could not be added");

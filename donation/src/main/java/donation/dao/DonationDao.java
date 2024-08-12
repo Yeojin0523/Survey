@@ -12,32 +12,33 @@ import oracle.db.DBConnect;
 public class DonationDao {
 
     // 기부 데이터 삽입
-    public void insertDonation(DonationDto dto) throws Exception {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
+	public void insertDonation(DonationDto dto) throws Exception {
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
 
-        String sql = "INSERT INTO donation (seq, text) VALUES (seq_Donation.NEXTVAL, ?)";
+	    String sql = "INSERT INTO donation (seq, title, categories, content, start_date, last_date, points, target_amount) " +
+	                 "VALUES (seq_Donation.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 
-        try {
-            conn = DBConnect.getConnection();
-            pstmt = conn.prepareStatement(sql);
-            // 값 바인딩
-            
-            pstmt.setString(1, dto.getTitle());
-            pstmt.setString(2, dto.getCategories());
-            pstmt.setString(3, dto.getText());
-            pstmt.setString(4, dto.getStartDate());
-            pstmt.setString(5, dto.getLastDate());
-            pstmt.setString(6, dto.getPoints());
-            pstmt.setString(7, dto.getTargetAmount());
-            
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBConnect.DBClose(pstmt, conn);
-        }
-    }
+	    try {
+	        conn = DBConnect.getConnection();
+	        pstmt = conn.prepareStatement(sql);
+	        // 값 바인딩
+	        pstmt.setString(1, dto.getTitle());
+	        pstmt.setString(2, dto.getCategories());
+	        pstmt.setString(3, dto.getText());
+	        pstmt.setString(4, dto.getStartDate());
+	        pstmt.setString(5, dto.getLastDate());
+	        pstmt.setString(6, dto.getPoints());
+	        pstmt.setString(7, dto.getTargetAmount());
+
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBConnect.DBClose(pstmt, conn);
+	    }
+	}
+
 
     // 모든 기부 데이터 조회
     public Vector<DonationDto> getAllDatas() throws Exception {

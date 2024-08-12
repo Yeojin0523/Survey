@@ -16,9 +16,15 @@ function loadFile(input){
 	container.appendChild(newImage);
 }
 function confirmSubmission(){
-	var result = confirm("등록하겠습니까");
-	if(result){
-		// 실행 시 데이터 넘겨
-		document.getElementById('donation-form').submit();
+	if(confirm("제출하시겠습니까?")){
+		alert("정상적으로 제출되었습니다.");
+		var form = document.getElememtById('donation-form');
+		form.method='POST';
+		form.action ='../AddDonationServlet';
+		
+		document.body.appendChild(form);
+		form.submit();
+	}else{
+		alert("제출실패");
 	}
 }
