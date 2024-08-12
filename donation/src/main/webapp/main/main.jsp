@@ -67,47 +67,52 @@ ResultSet rs = null;
                         <div class="donateList">
                             <table class="inner_table">
                                 <%
-                                try {
-                                    Class.forName("oracle.jdbc.driver.OracleDriver");
-                                    conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "c##systemid", "systempwd");
-                                    String sql = "SELECT * FROM donation";
-                                    pstmt = conn.prepareStatement(sql);
-                                    rs = pstmt.executeQuery();
-                                    int count = 0;
+try {
+    Class.forName("oracle.jdbc.driver.OracleDriver");
+    conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "c##systemid", "systempwd");
+    String sql = "SELECT * FROM donation ORDER BY seq DESC";
+    pstmt = conn.prepareStatement(sql);
+    rs = pstmt.executeQuery();
+    int count = 0;
 
-                                    while (rs.next()) {
-                                        if (count % 4 == 0) {
-                                            out.println("<tr>");
-                                        }
-                                        int seq = rs.getInt("seq");
-                                        String text = rs.getString("text");
-                                        out.println("<td>");
-                                        out.println("<div class='each-content' data-seq='" + seq + "' onclick='goToInsertForm(event)'>");
-                                        out.println("<span>" + seq + "</span>");
-                                        out.println("<span>" + text + "</span>");
-                                        out.println("</div>");
-                                        out.println("</td>");
-                                        count++;
+    while (rs.next()) {
+        if (count % 4 == 0) {
+            out.println("<tr>");
+        }
+        int seq = rs.getInt("seq");
+        String title = rs.getString("title");
+        String categories = rs.getString("categories");
+        String content = rs.getString("content");
+        out.println("<td>");
+        out.println("<div class='each-content' data-seq='" + seq + "' onclick='goToInsertForm(event)'>");
+        out.println("<span>" + seq + "</span>");
+        out.println("<span>" + title + "</span>");
+        out.println("<span>" + categories + "</span>");
+        out.println("<span>" + content + "</span>");
+        out.println("</div>");
+        out.println("</td>");
+        count++;
 
-                                        if (count % 4 == 0) {
-                                            out.println("</tr>");
-                                        }
-                                    }
-                                    if (count % 4 != 0) {
-                                        out.println("</tr>");
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                } finally {
-                                    try {
-                                        if (rs != null) rs.close();
-                                        if (pstmt != null) pstmt.close();
-                                        if (conn != null) conn.close();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                                %>
+        if (count % 4 == 0) {
+            out.println("</tr>");
+        }
+    }
+    if (count % 4 != 0) {
+        out.println("</tr>");
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (rs != null) rs.close();
+        if (pstmt != null) pstmt.close();
+        if (conn != null) conn.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+%>
+                                
                             </table>
                         </div>
                     </div>

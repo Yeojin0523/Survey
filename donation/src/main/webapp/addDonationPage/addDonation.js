@@ -15,16 +15,17 @@ function loadFile(input){
 	container.innerHTML = ""; // 기존 회색 이미지 제거
 	container.appendChild(newImage);
 }
-function confirmSubmission(){
-	if(confirm("제출하시겠습니까?")){
-		alert("정상적으로 제출되었습니다.");
-		var form = document.getElememtById('donation-form');
-		form.method='POST';
-		form.action ='../AddDonationServlet';
-		
-		document.body.appendChild(form);
-		form.submit();
-	}else{
-		alert("제출실패");
-	}
+function confirmSubmission(event) {
+    event.preventDefault(); // 기본 폼 제출 방지
+
+    if (confirm("제출하시겠습니까?")) {
+        alert("정상적으로 제출되었습니다.");
+        var form = document.getElementById('donation-form');
+        form.redirectPage.value = "main"; // 리다이렉트 페이지 설정
+        form.submit(); // 폼 제출
+    } else {
+        alert("제출이 취소되었습니다.");
+        var form = document.getElementById('donation-form');
+        form.redirectPage.value = "addDonation"; // 리다이렉트 페이지 설정 (취소 시 같은 페이지)
+    }
 }

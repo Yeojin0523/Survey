@@ -39,7 +39,7 @@
 
 			<input type="hidden" name="redirectPage" value="main">
 			<!-- 리다이렉트할 페이지 설정 -->
-			<button id="btn-show" type="submit" onclick="confirmSubmission()">확인</button>
+			<button id="btn-show" type="submit" onclick="confirmSubmission(event)">확인</button>
 
 		</form>
 	</div>
