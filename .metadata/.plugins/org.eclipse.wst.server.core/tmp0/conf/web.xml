@@ -198,7 +198,7 @@
   <!--   keepgenerated       Should we keep the generated Java source code  -->
   <!--                       for each page instead of deleting it? [true]   -->
   <!--                                                                      -->
-  <!--   mappedfile          Should we generate static content with one     -->
+  <!--   mappedfile          Should we generate static text with one     -->
   <!--                       print statement per input line, to ease        -->
   <!--                       debugging?  [true]                             -->
   <!--                                                                      -->
@@ -492,7 +492,7 @@
   <!--                       allowed? []                                    -->
   <!--                                                                      -->
   <!--   blockContentTypeSniffingEnabled                                    -->
-  <!--                       Should the header that blocks content type     -->
+  <!--                       Should the header that blocks text type     -->
   <!--                       sniffing be added to every response? [true]    -->
 <!--
     <filter>
@@ -541,7 +541,7 @@
   <!-- this to work you will need to uncomment the .shtml mime type         -->
   <!-- definition towards the bottom of this file.                          -->
   <!-- The contentType init param allows you to apply SSI processing to JSP -->
-  <!-- pages, JavaScript, or any other content you wish.  This filter       -->
+  <!-- pages, JavaScript, or any other text you wish.  This filter       -->
   <!-- supports the following initialization parameters (default values are -->
   <!-- in square brackets):                                                 -->
   <!--                                                                      -->
@@ -635,7 +635,7 @@
 
   <!-- ===================== Default MIME Type Mappings =================== -->
   <!-- When serving static resources, Tomcat will automatically generate    -->
-  <!-- a "Content-Type" header based on the resource's filename extension,  -->
+  <!-- a "text-Type" header based on the resource's filename extension,  -->
   <!-- based on these mappings.  Additional mappings can be added here (to  -->
   <!-- apply to all web applications), or in your own application's web.xml -->
   <!-- deployment descriptor.                                               -->

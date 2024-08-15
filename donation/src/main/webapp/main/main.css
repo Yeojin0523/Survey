@@ -7,8 +7,8 @@
 .wrapper{
 	width:100%;
 }
-/*content 랩*/
-.content{
+/*text 랩*/
+.text{
 	width:1080px;
 	margin:auto;
 }
@@ -55,7 +55,7 @@ table{
 table, td, th{
 	border-collapse: collapse;
 }
-.content{
+.text{
 	border:1px solid black;
 }
 .outer_table{
@@ -72,7 +72,7 @@ table, td, th{
 }
 .category{
 	display: flex;
-	justify-content: space-around;
+	justify-text: space-around;
 	text-align: center;
 }
 

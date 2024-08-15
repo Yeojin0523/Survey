@@ -16,7 +16,7 @@ public class DonationDao {
 	    Connection conn = null;
 	    PreparedStatement pstmt = null;
 
-	    String sql = "INSERT INTO donation (seq, title, categories, content, start_date, last_date, points, target_amount) " +
+	    String sql = "INSERT INTO donation (seq, title, categories, text, start_date, last_date, points, target_amount) " +
 	                 "VALUES (seq_Donation.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 
 	    try {

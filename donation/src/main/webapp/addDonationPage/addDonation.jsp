@@ -21,7 +21,7 @@
 				<option value="children">어린이</option>
 				<option value="world">지구촌</option>
 			</select><br> 내용 :
-			<textarea class="text" name="content" placeholder="내용을 입력해 주세요"></textarea>
+			<textarea class="text" name="text" placeholder="내용을 입력해 주세요"></textarea>
 			<br> 시작일 : <input type="date" min="2020-01-01" max=""
 				name="startDate" /> 마감일 : <input type="date" min="" max=""
 				name="lastDate" /><br>
