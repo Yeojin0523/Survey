@@ -2,7 +2,6 @@ INDEX VERSION 1.134+D:\study_2024\survey\.metadata\.plugins\org.eclipse.jdt.core
 1613744359.index
 2249391099.index
 3111654680.index
-2482594694.index
 1258926545.index
 1539217460.index
 3115115339.index

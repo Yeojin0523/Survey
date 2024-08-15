@@ -23,7 +23,6 @@
 			<version>21.5.0.0</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -31,9 +30,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<groupId></groupId>
 		</dependency>
 	</dependencies>
 

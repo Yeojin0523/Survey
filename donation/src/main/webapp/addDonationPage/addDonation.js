@@ -18,14 +18,15 @@ function loadFile(input){
 function confirmSubmission(event) {
     event.preventDefault(); // 기본 폼 제출 방지
 
+    var form = document.getElementById('donation-form');
+
     if (confirm("제출하시겠습니까?")) {
         alert("정상적으로 제출되었습니다.");
-        var form = document.getElementById('donation-form');
-        form.redirectPage.value = "main"; // 리다이렉트 페이지 설정
+        document.getElementById('redirectPage').value = "main"; // 리다이렉트 페이지 설정
         form.submit(); // 폼 제출
     } else {
         alert("제출이 취소되었습니다.");
-        var form = document.getElementById('donation-form');
-        form.redirectPage.value = "addDonation"; // 리다이렉트 페이지 설정 (취소 시 같은 페이지)
+        // 취소 시에는 아무런 추가 동작이 필요 없습니다.
     }
 }
+

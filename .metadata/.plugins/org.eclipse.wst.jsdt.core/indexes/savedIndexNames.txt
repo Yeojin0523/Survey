@@ -1,6 +1,4 @@
 INDEX VERSION 1.4+D:\study_2024\survey\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-791287797.index
-192665271.index
 3820308686.index
 679281678.index
 648607749.index
