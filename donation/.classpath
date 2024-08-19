@@ -43,5 +43,18 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/commons-fileupload-1.5.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/spring-beans-6.1.10.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/commons-io-2.11.0.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/spring-aop-6.1.10.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/spring-context-6.1.10.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/spring-core-6.1.10.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/spring-webmvc-6.1.10.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/taglibs-standard-compat-1.2.5.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/taglibs-standard-jstlel-1.2.5.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/taglibs-standard-spec-1.2.5.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/web.xml"/>
+	<classpathentry kind="lib" path="D:/study_2024/survey/donation/src/main/webapp/WEB-INF/spring-web-6.1.10.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
