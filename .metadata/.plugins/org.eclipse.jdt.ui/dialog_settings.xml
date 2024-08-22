@@ -76,4 +76,7 @@
 	</section>
 	<section name="CallHierarchySearchScope">
 	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="0"/>
+	</section>
 </section>

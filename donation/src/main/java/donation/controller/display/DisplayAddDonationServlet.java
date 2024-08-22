@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import donation.dto.DonationDto;
+import donation.dto.DonationListDto;
 
 @WebServlet("/DisplayAddDonationServlet")
 public class DisplayAddDonationServlet extends HttpServlet {
@@ -20,7 +20,7 @@ public class DisplayAddDonationServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 
-		DonationDto donation = (DonationDto) request.getAttribute("donation");
+		DonationListDto donation = (DonationListDto) request.getAttribute("donation");
 
 		request.setAttribute("donation", donation);
 

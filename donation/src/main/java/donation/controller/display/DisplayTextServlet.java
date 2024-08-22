@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import donation.dto.DonationDto;
+import donation.dto.DonationListDto;
 
 // 이전에 DonationServlet에서 가져온 데이터를 클라이언트에게 보여주는 역할
 
@@ -21,7 +21,7 @@ public class DisplayTextServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
 
-        DonationDto donation = (DonationDto) request.getAttribute("donation");
+        DonationListDto donation = (DonationListDto) request.getAttribute("donation");
         if (donation == null) {
             System.out.println("Donation object is null");
         } else {

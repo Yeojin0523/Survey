@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import donation.dto.DonationDto;
+import donation.dto.DonationListDto;
 
 @WebServlet("/DonationServlet")
 public class DonationServlet extends HttpServlet {
@@ -24,7 +24,7 @@ public class DonationServlet extends HttpServlet {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        DonationDto donation = null;
+        DonationListDto donation = null;
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -35,7 +35,7 @@ public class DonationServlet extends HttpServlet {
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                donation = new DonationDto();
+                donation = new DonationListDto();
                 donation.setSeq(rs.getInt("seq"));
                 donation.setText(rs.getString("text"));
             }

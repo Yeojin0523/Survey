@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import donation.dao.DonationDao;
-import donation.dto.DonationDto;
+import donation.dao.DonationListDao;
+import donation.dto.DonationListDto;
 
 @WebServlet("/AddDonationServlet")
 public class AddDonationServlet extends HttpServlet {
@@ -30,7 +30,7 @@ public class AddDonationServlet extends HttpServlet {
 		String redirectPage = request.getParameter("redirectPage"); // 어디로 리다이렉트할지 결정하는 파라미터
 
 		// DTO 객체 생성 및 데이터 설정
-		DonationDto dto = new DonationDto();
+		DonationListDto dto = new DonationListDto();
 		dto.setTitle(title);
 		dto.setCategories(categories);
 		dto.setText(text);
@@ -40,7 +40,7 @@ public class AddDonationServlet extends HttpServlet {
 		dto.setTargetAmount(targetAmount);
 
 		// DAO를 통해 데이터베이스에 기부 데이터 삽입
-		DonationDao dao = new DonationDao();
+		DonationListDao dao = new DonationListDao();
 		try {
 			dao.insertDonation(dto);
 			// 삽입 후 메인 페이지로 리다이렉트
