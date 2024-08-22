@@ -1,4 +1,4 @@
-package donation.controller;
+package donation.controller.display;
 
 import java.io.IOException;
 
