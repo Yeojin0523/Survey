@@ -35,3 +35,26 @@ document.addEventListener("DOMContentLoaded", function() {
         form.submit();
     }
 });
+// 이미지 파일 추가를 위한 코드
+function posting(){
+	let title = $('img-title').val();
+	let file = $('img-comment').val();
+	
+	// formData 객체에 데이터 추가
+	let form_data = new FormData();
+	form_data.append("file_give", file);
+	form_data.append("title_give", title);
+	
+	$.ajax({
+		type: "POST",
+		url:"/posting", 
+		data: form_data,
+		contentType:false,
+		processData:false,
+		cache:false,
+		success: function(response){
+			alert(response["msg"]);
+			window.location.reload();
+		}
+	})
+}
