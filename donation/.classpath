@@ -53,7 +53,11 @@
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/taglibs-standard-impl-1.2.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/taglibs-standard-jstlel-1.2.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/taglibs-standard-spec-1.2.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/web.xml"/>
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/spring-web-6.1.10.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/ojdbc11.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
