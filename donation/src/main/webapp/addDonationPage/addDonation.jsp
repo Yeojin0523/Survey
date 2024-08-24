@@ -31,7 +31,7 @@
 				<!-- 이미지 띄울 공간 -->
 			</div>
 			<div>
-				<input type="file" accept="image/*" onchange="loadFile(this)">
+				<input type="file" name="file" accept="image/*" onchange="loadFile(this)">
 				<!-- 여기서 onchange는 input이나 select 등의 데이터가 변경될 떄 호출되는 이벤트이다. 
 			이 코드에서는 파일을 불러왔을 때 loadFile 함수를 실행한다. -->
 			</div>

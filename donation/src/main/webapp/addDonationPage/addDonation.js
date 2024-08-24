@@ -29,4 +29,34 @@ function confirmSubmission(event) {
         // 취소 시에는 아무런 추가 동작이 필요 없습니다.
     }
 }
+$(document).ready(function(){
+	listing();
+})
+function listing() {
+    $.ajax({
+        type: "GET",
+        url: "/listing",
+        data: {},
+        success: function(response) {
+            if (response["result"] === "success") {
+                let images = response['images'];
+                for (let i = 0; i < images.length; i++) {
+                    let title = images[i]['imageName'];
+                    let file = images[i]['imageUrl'];
+
+                    let temp_html = `
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="../static/${file}" class="card-img-top" style="max-height: 300px">
+                                <div class="card-body">
+                                    <h5 class="card-title">${title}</h5>
+                                </div>
+                            </div>
+                        </div>`;
+                    $('#image-container').append(temp_html);  // '#image-container'는 이미지를 담을 HTML 요소의 ID
+                }
+            }
+        }
+    });
+}
 

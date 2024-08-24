@@ -1,18 +1,22 @@
 package donation.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import donation.dao.DonationListDao;
 import donation.dto.DonationListDto;
 
 @WebServlet("/AddDonationServlet")
+@MultipartConfig
 public class AddDonationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,6 +33,12 @@ public class AddDonationServlet extends HttpServlet {
 		String targetAmount = request.getParameter("targetAmount");
 		String redirectPage = request.getParameter("redirectPage"); // 어디로 리다이렉트할지 결정하는 파라미터
 
+		// 파일 업로드 처리
+		Part filePart = request.getPart("file"); // 파일 part 가져오기
+		String filePath = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+		File file = new File(filePath);
+		filePart.write(file.getAbsolutePath());
+		
 		// DTO 객체 생성 및 데이터 설정
 		DonationListDto dto = new DonationListDto();
 		dto.setTitle(title);
@@ -38,24 +48,17 @@ public class AddDonationServlet extends HttpServlet {
 		dto.setLastDate(lastDate);
 		dto.setPoints(points);
 		dto.setTargetAmount(targetAmount);
+		dto.setImagePath(filePath); // 이미지 경로 설정
 
 		// DAO를 통해 데이터베이스에 기부 데이터 삽입
 		DonationListDao dao = new DonationListDao();
 		try {
-			dao.insertDonation(dto);
-			// 삽입 후 메인 페이지로 리다이렉트
-			System.out.println(redirectPage);
-			if (redirectPage != null && redirectPage.equals("main")) {
-				response.sendRedirect("main.jsp");
-			} else {
-				request.setAttribute("donation", dto);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/DisplayAddDonationServlet");
-				dispatcher.forward(request, response);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Donation could not be added");
-		}
+            dao.insertDonation(dto);
+            response.sendRedirect("main.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Donation could not be added");
+        }
 	}
 
 	@Override

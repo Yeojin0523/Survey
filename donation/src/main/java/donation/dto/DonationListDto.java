@@ -9,6 +9,7 @@ public class DonationListDto {
 	private String lastDate;
 	private String points;
 	private String targetAmount;
+	private String filePath;
 
 	public int getSeq() {
 		return seq;
@@ -73,5 +74,14 @@ public class DonationListDto {
 
 	public void setTargetAmount(String targetAmount) {
 		this.targetAmount = targetAmount;
+	}
+
+	public String getImagePath() {
+		return filePath;
+	}
+	
+	public void setImagePath(String filePath) {
+		this.filePath = filePath;
+		
 	}
 }

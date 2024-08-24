@@ -47,7 +47,7 @@ function posting(){
 	
 	$.ajax({
 		type: "POST",
-		url:"/posting", 
+		url:"/upload", 
 		data: form_data,
 		contentType:false,
 		processData:false,

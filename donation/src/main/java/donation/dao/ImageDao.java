@@ -33,6 +33,5 @@ public class ImageDao{
 			e.printStackTrace();
 		}
 		return images;
-	}
-			
+	}		
 }
