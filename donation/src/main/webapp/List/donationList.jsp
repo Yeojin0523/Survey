@@ -15,7 +15,7 @@
             <h1>No data found</h1>
         </c:otherwise>
     </c:choose>
-    <form action="donation_form_action" method="get">
+    <form action="donation_form_action" method="post">
                 기부하기 : <input type="text" name="text" value="금액을 입력하세요">
                 <input type="submit" value="추가">
     </form>

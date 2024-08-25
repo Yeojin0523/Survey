@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var form = document.createElement('form');
             form.method = 'POST';
             form.action = '../AddDonationServlet';
+            form.enctype = 'multipart/form-data';
             document.body.appendChild(form);
             form.submit();
         });
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var form = document.createElement('form');
         form.method = 'POST';
         form.action = '../DonationServlet';
+		form.enctype = 'multipart/form-data';
 
         var seqField = document.createElement('input');
         seqField.type = 'hidden';
@@ -35,26 +37,27 @@ document.addEventListener("DOMContentLoaded", function() {
         form.submit();
     }
 });
+
 // 이미지 파일 추가를 위한 코드
-function posting(){
-	let title = $('img-title').val();
-	let file = $('img-comment').val();
-	
-	// formData 객체에 데이터 추가
-	let form_data = new FormData();
-	form_data.append("file_give", file);
-	form_data.append("title_give", title);
-	
-	$.ajax({
-		type: "POST",
-		url:"/upload", 
-		data: form_data,
-		contentType:false,
-		processData:false,
-		cache:false,
-		success: function(response){
-			alert(response["msg"]);
-			window.location.reload();
-		}
-	})
+function posting() {
+    let title = $('img-title').val();
+    let file = $('img-comment').val();
+    
+    // formData 객체에 데이터 추가
+    let form_data = new FormData();
+    form_data.append("file_give", file);
+    form_data.append("title_give", title);
+    
+    $.ajax({
+        type: "POST",
+        url: "/upload", 
+        data: form_data,
+        contentType: false,
+        processData: false,
+        cache: false,
+        success: function(response) {
+            alert(response["msg"]);
+            window.location.reload();
+        }
+    })
 }

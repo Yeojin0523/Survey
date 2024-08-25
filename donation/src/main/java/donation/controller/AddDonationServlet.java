@@ -31,10 +31,17 @@ public class AddDonationServlet extends HttpServlet {
 		String lastDate = request.getParameter("lastDate");
 		String points = request.getParameter("points");
 		String targetAmount = request.getParameter("targetAmount");
-		String redirectPage = request.getParameter("redirectPage"); // 어디로 리다이렉트할지 결정하는 파라미터
 
 		// 파일 업로드 처리
 		Part filePart = request.getPart("file"); // 파일 part 가져오기
+		
+		if (filePart == null || filePart.getSize() == 0) {
+		    // Handle the case where no file was uploaded
+		    System.out.println("No file uploaded or file is empty.");
+		    response.sendRedirect("error.jsp"); // Redirect to an error page or show an error message
+		    return; // 여기서 에러나는 건 확실
+		}
+
 		String filePath = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 		File file = new File(filePath);
 		filePart.write(file.getAbsolutePath());

@@ -72,7 +72,7 @@ table, td, th{
 }
 .category{
 	display: flex;
-	justify-text: space-around;
+	justify-content: space-around;
 	text-align: center;
 }
 
